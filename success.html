@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ws QahvaStyle | Buyurtma qabul qilindi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0C0A09;
+            color: #ECE6E0;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 24px 70px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 54px;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 18px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F5E7C8, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo i {
+            color: #D4AF37;
+            font-size: 2rem;
+        }
+        .back-home {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 8px 24px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: #F3E5C9;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back-home:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #D4AF37;
+        }
+        /* Success card */
+        .success-card {
+            background: #12100E;
+            border-radius: 48px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            overflow: hidden;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .success-header {
+            background: linear-gradient(135deg, #1A1613, #0F0D0B);
+            padding: 40px 32px 32px;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .check-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(212, 175, 55, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+            color: #D4AF37;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+        }
+        .success-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F5E7C8, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+        .order-badge {
+            background: #1C1815;
+            padding: 6px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        /* Courier animation section */
+        .tracking-section {
+            padding: 28px 32px;
+            background: #0F0D0B;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .track-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .track-title h3 {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            gap: 10px;
+        }
+        .live-badge {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #D4AF37;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        /* Road map */
+        .map-container {
+            background: #1A1816;
+            border-radius: 28px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .road-scene {
+            background: #2A2520;
+            border-radius: 24px;
+            height: 140px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+        }
+        .dashed-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: repeating-linear-gradient(90deg, #D4AF37, #D4AF37 12px, transparent 12px, transparent 28px);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .shop-marker {
+            position: absolute;
+            left: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2C6E2F;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 3;
+        }
+        .home-marker {
+            position: absolute;
+            right: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #B45F2B;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 3;
+        }
+        .scooter-animate {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 5%;
+            width: 52px;
+            height: 52px;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #0C0A09;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+            z-index: 10;
+            transition: left 0.05s linear;
+            border: 2px solid #F5E7C8;
+        }
+        /* Progress steps */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+        }
+        .step-circle {
+            width: 44px;
+            height: 44px;
+            background: #1C1815;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #5e5348;
+            margin-bottom: 8px;
+            transition: 0.2s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .step.active .step-circle {
+            background: #D4AF37;
+            color: #0C0A09;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        .step.active span {
+            color: #D4AF37;
+            font-weight: 600;
+        }
+        .step span {
+            font-size: 0.7rem;
+            color: #ADA392;
+        }
+        /* Info cards */
+        .info-card {
+            background: #1C1815;
+            border-radius: 24px;
+            padding: 24px 28px;
+            margin: 20px 32px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 200px;
+        }
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #D4AF37;
+        }
+        .info-label {
+            font-size: 0.7rem;
+            color: #ADA392;
+            letter-spacing: 0.3px;
+        }
+        .info-value {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #F8F2E4;
+        }
+        .time-chip {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 6px 14px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #D4AF37;
+        }
+        /* Order summary */
+        .summary-card {
+            background: #1C1815;
+            border-radius: 24px;
+            padding: 24px 28px;
+            margin: 0 32px 32px 32px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .summary-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            color: #D4AF37;
+        }
+        .order-item-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .total-row {
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding-top: 16px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            color: #D4AF37;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin: 20px 32px 40px 32px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary {
+            background: #D4AF37;
+            color: #0C0A09;
+        }
+        .btn-primary:hover {
+            background: #F5D87A;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #D4AF37;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        @media (max-width: 680px) {
+            .container { padding: 20px 16px; }
+            .success-header { padding: 28px 20px; }
+            .tracking-section { padding: 20px; }
+            .info-card, .summary-card { margin-left: 16px; margin-right: 16px; }
+            .btn-group { margin-left: 16px; margin-right: 16px; }
+            .info-grid { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <i class="fas fa-mug-hot"></i>
+            <span>Ws QahvaStyle</span>
+        </div>
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Menyuga qaytish
+        </a>
+    </header>
+
+    <div class="success-card">
+        <div class="success-header">
+            <div class="check-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Buyurtma qabul qilindi!</h1>
+            <div class="order-badge">
+                <i class="fas fa-receipt"></i> Buyurtma № <span id="orderNumber">------</span>
+            </div>
+        </div>
+
+        <!-- Курьер анимация -->
+        <div class="tracking-section">
+            <div class="track-title">
+                <h3><i class="fas fa-location-dot"></i> Yetkazib berish holati</h3>
+                <div class="live-badge"><i class="fas fa-satellite-dish"></i> Jonli kuzatuv</div>
+            </div>
+            <div class="map-container">
+                <div class="road-scene" id="roadScene">
+                    <div class="dashed-line"></div>
+                    <div class="shop-marker"><i class="fas fa-store"></i></div>
+                    <div class="home-marker"><i class="fas fa-home"></i></div>
+                    <div class="scooter-animate" id="scooterIcon">
+                        <i class="fas fa-scooter"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-steps" id="stepContainer">
+                <div class="step" data-step="0">
+                    <div class="step-circle"><i class="fas fa-check-circle"></i></div>
+                    <span>Qabul qilindi</span>
+                </div>
+                <div class="step" data-step="1">
+                    <div class="step-circle"><i class="fas fa-mug-hot"></i></div>
+                    <span>Tayyorlanmoqda</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle"><i class="fas fa-road"></i></div>
+                    <span>Yo‘lda</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle"><i class="fas fa-hand-peace"></i></div>
+                    <span>Yetkazilmoqda</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Информация о доставке -->
+        <div class="info-card">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+                    <div>
+                        <div class="info-label">Yetkazib berish manzili</div>
+                        <div class="info-value" id="deliveryAddress">Yuklanmoqda...</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <div class="info-label">Kutilayotgan vaqt</div>
+                        <div class="info-value"><span class="time-chip" id="timerDisplay"><i class="fas fa-hourglass-half"></i> 25-30 daqiqa</span></div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-user"></i></div>
+                    <div>
+                        <div class="info-label">Mijoz</div>
+                        <div class="info-value" id="customerName">---</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <div class="info-label">Telefon</div>
+                        <div class="info-value" id="customerPhone">---</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Состав заказа -->
+        <div class="summary-card">
+            <div class="summary-title">
+                <i class="fas fa-shopping-bag"></i> Buyurtma tarkibi
+            </div>
+            <div id="orderItemsList"></div>
+            <div class="order-item-row total-row" id="totalRow">
+                <span>Jami to‘lov</span>
+                <span id="totalAmountSpan">0 so‘m</span>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> Bosh sahifa</a>
+            <a href="index.html" class="btn btn-outline"><i class="fas fa-mug-hot"></i> Yangi buyurtma</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Меню для получения названий и цен (из index.html)
+    const coffeeMenuFull = [
+        { id: 1, name: "Oltingugurt Espresso", price: 11900 },
+        { id: 2, name: "Asal Lattesi", price: 13500 },
+        { id: 3, name: "Filtrlangan V60", price: 12700 },
+        { id: 4, name: "Karamelli Raf", price: 14900 },
+        { id: 5, name: "Yassi Oq (Flat White)", price: 12500 },
+        { id: 6, name: "Mokka Dolce", price: 15200 },
+        { id: 7, name: "Yalpizli Mochaito", price: 13900 },
+        { id: 8, name: "Praline Lattesi", price: 14500 },
+        { id: 9, name: "Irlandcha Qaymoq", price: 16200 },
+        { id: 10, name: "Vanil Frize", price: 12900 },
+        { id: 11, name: "Dolchinli Kapuchino", price: 12200 },
+        { id: 12, name: "Qora Qahva (Cold Brew)", price: 11500 }
+    ];
+
+    let orderData = null;
+    let animationFrame = null;
+    let startTime = null;
+    const scooter = document.getElementById('scooterIcon');
+    const roadScene = document.getElementById('roadScene');
+
+    function generateOrderNumber() {
+        return Math.floor(100000 + Math.random() * 900000);
+    }
+
+    // Загрузка данных заказа из localStorage
+    function loadOrderData() {
+        const raw = localStorage.getItem('last_order');
+        if (!raw) {
+            // Демо-данные если нет заказа
+            document.getElementById('deliveryAddress').innerText = "Toshkent sh., Chilonzor 12-uy";
+            document.getElementById('customerName').innerText = "Azizbek Rahimov";
+            document.getElementById('customerPhone').innerText = "+998 90 123 45 67";
+            document.getElementById('orderNumber').innerText = generateOrderNumber();
+            renderEmptySummary();
+            return;
+        }
+        try {
+            orderData = JSON.parse(raw);
+            if (orderData.customer) {
+                document.getElementById('deliveryAddress').innerText = orderData.customer.address || "Manzil kiritilmagan";
+                document.getElementById('customerName').innerText = orderData.customer.name || "Mijoz";
+                document.getElementById('customerPhone').innerText = orderData.customer.phone || "---";
+            }
+            document.getElementById('orderNumber').innerText = generateOrderNumber();
+            if (orderData.items && orderData.items.length > 0) {
+                renderOrderSummary(orderData.items, orderData.total || 0);
+            } else {
+                renderEmptySummary();
+            }
+        } catch(e) {
+            renderEmptySummary();
+        }
+    }
+
+    function renderOrderSummary(items, totalSum) {
+        const container = document.getElementById('orderItemsList');
+        if (!container) return;
+        container.innerHTML = '';
+        let computed = 0;
+        items.forEach(item => {
+            const qty = item.quantity || 1;
+            const price = item.price || 0;
+            const lineTotal = price * qty;
+            computed += lineTotal;
+            const row = document.createElement('div');
+            row.className = 'order-item-row';
+            row.innerHTML = `<span>${item.name || 'Qahva'} x${qty}</span><span>${lineTotal.toLocaleString()} so‘m</span>`;
+            container.appendChild(row);
+        });
+        const finalTotal = totalSum || computed;
+        document.getElementById('totalAmountSpan').innerText = finalTotal.toLocaleString() + ' so‘m';
+        if (items.length === 0) {
+            container.innerHTML = '<div class="order-item-row">Maʼlumot mavjud emas</div>';
+        }
+    }
+
+    function renderEmptySummary() {
+        const container = document.getElementById('orderItemsList');
+        if (container) container.innerHTML = '<div class="order-item-row">Buyurtma tarkibi topilmadi</div>';
+        document.getElementById('totalAmountSpan').innerText = '0 so‘m';
+    }
+
+    // Анимация курьера
+    function startCourierAnimation() {
+        if (!roadScene || !scooter) return;
+        const startPercent = 5;
+        const endPercent = 88;
+        const duration = 14000;
+        startTime = performance.now();
+
+        function animate(now) {
+            const elapsed = now - startTime;
+            let progress = Math.min(1, elapsed / duration);
+            // easeOutCubic для плавности
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const currentPercent = startPercent + (endPercent - startPercent) * ease;
+            const rect = roadScene.getBoundingClientRect();
+            if (rect.width > 0) {
+                const leftPx = (currentPercent / 100) * rect.width;
+                scooter.style.left = `${leftPx}px`;
+            }
+            // Обновляем активные шаги
+            if (progress < 0.15) setActiveStep(1);
+            else if (progress < 0.45) setActiveStep(2);
+            else if (progress < 0.85) setActiveStep(3);
+            else setActiveStep(3);
+            
+            if (progress < 1) {
+                animationFrame = requestAnimationFrame(animate);
+            } else {
+                setActiveStep(3);
+                if (scooter) scooter.innerHTML = '<i class="fas fa-flag-checkered"></i>';
+            }
+        }
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+        animationFrame = requestAnimationFrame(animate);
+        
+        // Адаптация при изменении размера окна
+        window.addEventListener('resize', () => {
+            if (startTime) {
+                const now = performance.now();
+                const elapsed = now - startTime;
+                const prog = Math.min(1, elapsed / duration);
+                const ease = 1 - Math.pow(1 - prog, 3);
+                const currPercent = startPercent + (endPercent - startPercent) * ease;
+                const newRect = roadScene.getBoundingClientRect();
+                if (newRect.width) scooter.style.left = `${(currPercent / 100) * newRect.width}px`;
+            }
+        });
+    }
+
+    function setActiveStep(stepIndex) {
+        const steps = document.querySelectorAll('.step');
+        steps.forEach((step, idx) => {
+            if (idx <= stepIndex) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+    }
+
+    // Таймер обратного отсчета (реалистичный)
+    function startDeliveryTimer() {
+        let minutes = 18;
+        const timerSpan = document.querySelector('.time-chip');
+        if (!timerSpan) return;
+        const interval = setInterval(() => {
+            if (minutes <= 3) {
+                timerSpan.innerHTML = `<i class="fas fa-hourglass-end"></i> 2-4 daqiqa`;
+                clearInterval(interval);
+            } else {
+                minutes -= 1;
+                timerSpan.innerHTML = `<i class="fas fa-hourglass-half"></i> ${minutes}-${minutes+2} daqiqa`;
+            }
+        }, 60000);
+    }
+
+    function init() {
+        loadOrderData();
+        setTimeout(() => {
+            startCourierAnimation();
+            startDeliveryTimer();
+        }, 300);
+        setActiveStep(1);
+    }
+    init();
+</script>
+</body>
+</html>

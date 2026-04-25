@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ws QahvaStyle | Premium kofe yetkazib berish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0C0A09;
+            color: #ECE6E0;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 24px 70px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 54px;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 18px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F5E7C8, #D4AF37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo i {
+            color: #D4AF37;
+            font-size: 2rem;
+        }
+        .cart-wrapper {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cart-wrapper:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #D4AF37;
+        }
+        .cart {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #F3E5C9;
+            font-size: 1rem;
+        }
+        .cart i {
+            font-size: 1.3rem;
+            color: #D4AF37;
+        }
+        .cart span {
+            background: #D4AF37;
+            color: #0C0A09;
+            padding: 3px 10px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            margin-bottom: 85px;
+            flex-wrap: wrap;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        .intro-title {
+            font-size: 3.3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(125deg, #FBF5E3, #D4AF37, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .intro-desc {
+            font-size: 1.15rem;
+            color: #BCB0A2;
+            margin-bottom: 36px;
+            border-left: 3px solid #D4AF37;
+            padding-left: 22px;
+        }
+        .intro-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 28px;
+        }
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(30, 27, 24, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 8px 20px 8px 12px;
+            border-radius: 60px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .benefit-icon {
+            width: 34px;
+            height: 34px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+        }
+        .intro-img {
+            flex: 0.8;
+            max-width: 360px;
+            width: 100%;
+            border-radius: 32px;
+            object-fit: cover;
+            box-shadow: 0 30px 35px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.2);
+        }
+        .coffee-section {
+            margin-top: 24px;
+        }
+        .coffee-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .coffee-title i {
+            color: #D4AF37;
+            font-size: 2rem;
+        }
+        .coffee-title:after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, transparent);
+        }
+        .coffee-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 45px 28px;
+        }
+        .coffee-card {
+            background: #12100E;
+            border-radius: 36px;
+            padding: 30px 20px 22px;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .coffee-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.6);
+            background: #161310;
+        }
+        .coffee-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: -65px auto 16px auto;
+            box-shadow: 0 15px 20px -8px rgba(0,0,0,0.5);
+            border: 3px solid #D4AF37;
+            background: #241F1A;
+        }
+        .coffee-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 12px 0 10px;
+            flex-wrap: wrap;
+        }
+        .coffee-tag {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #E9D5A7;
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 5px 12px;
+            border-radius: 40px;
+        }
+        .coffee-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 8px 0 6px;
+            color: #F8F2E4;
+        }
+        .coffee-desc {
+            font-size: 0.85rem;
+            line-height: 1.45;
+            color: #ADA392;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 8px;
+        }
+        .coffee-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            background: #1C1815;
+            padding: 12px 16px;
+            border-radius: 60px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .coffee-price {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #E9C468;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #0C0A09;
+            padding: 5px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .qty-btn {
+            background: transparent;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+        .qty-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+        .qty-value {
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 24px;
+            text-align: center;
+            color: #F3E5C9;
+        }
+        .cart-icon-btn {
+            background: #D4AF37;
+            border: none;
+            color: #0C0A09;
+            width: 42px;
+            height: 42px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-icon-btn:hover {
+            background: #F5D87A;
+            transform: scale(0.96);
+        }
+        .signature-badge {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            color: #5e5348;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 32px;
+        }
+        @media (max-width: 760px) {
+            .container { padding: 24px 16px; }
+            .intro-title { font-size: 2.4rem; }
+            .intro-img { max-width: 280px; }
+            .coffee-title { font-size: 2rem; }
+        }
+        @media (max-width: 540px) {
+            .intro { flex-direction: column; text-align: center; }
+            .intro-desc { border-left: none; text-align: center; padding-left: 0; }
+            .intro-benefits { justify-content: center; }
+            .coffee-footer { flex-direction: column; align-items: stretch; }
+            .quantity-controls { justify-content: center; }
+        }
+        .coffee-card {
+            animation: smoothAppear 0.5s ease backwards;
+        }
+        @keyframes smoothAppear {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .custom-toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1C1A17;
+            backdrop-filter: blur(12px);
+            border: 1px solid #D4AF37;
+            color: #F3E5CA;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 1000;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px black;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        @media (max-width: 500px) {
+            .custom-toast { white-space: normal; text-align: center; width: 85%; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <i class="fas fa-mug-hot"></i>
+            <span>Ws QahvaStyle</span>
+        </div>
+        <div class="cart-wrapper" id="cartHeaderBtn">
+            <div class="cart">
+                <i class="fas fa-bag-shopping"></i>
+                <span id="cartCount">0</span>
+                <i class="fas fa-angle-right" style="font-size: 0.7rem;"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="intro-text">
+            <div class="intro-title">Har lahzaga mos <br> mukammal qahva</div>
+            <div class="intro-desc">12+ ta noyob ta'mli, o‘zingiz yoqtirgan miqdorni tanlang va buyurtma bering.</div>
+            <div class="intro-benefits">
+                <div class="benefit"><span class="benefit-icon"><i class="fas fa-seedling"></i></span> 100% Arabica</div>
+                <div class="benefit"><span class="benefit-icon"><i class="fas fa-rocket"></i></span> 25 daqiqada yetkazib</div>
+                <div class="benefit"><span class="benefit-icon"><i class="fas fa-palette"></i></span> Eko-dizayn paket</div>
+                <div class="benefit"><span class="benefit-icon"><i class="fas fa-crown"></i></span> Barista tanlovi</div>
+            </div>
+        </div>
+        <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Premium qahva" class="intro-img">
+    </section>
+
+    <section class="coffee-section">
+        <div class="coffee-title">
+            <i class="fas fa-star-of-life"></i> Keng assortiment — 12 ta noyob kofe
+        </div>
+        <div class="coffee-list" id="coffeeList"></div>
+    </section>
+    <div class="signature-badge">
+        <i class="fas fa-mug-saucer"></i> Ws — bu uslub | Ws QahvaStyle
+    </div>
+</div>
+
+<script>
+    // REAL COFFEE NAMES with MATCHING PHOTOS from reliable sources
+    const coffeeMenu = [
+        { 
+            id: 1, 
+            name: "Espresso", 
+            desc: "Qora shokolad va sitrus notalari. Kuchli, to'yingan ta'm. Italiya klassikasi.", 
+            tags: ["Klassik", "Kuchli"], 
+            price: 11900, 
+            img: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop", 
+            alt: "Espresso qahva" 
+        },
+        { 
+            id: 2, 
+            name: "Latte", 
+            desc: "Yumshoq sutli ko'pik, engil vanil notalari. Kuningizni yorituvchi ichimlik.", 
+            tags: ["Sutli", "Yumshoq"], 
+            price: 13500, 
+            img: "https://www.javapresse.com/cdn/shop/articles/JavaPresse_Coffee_Company_00666_x330_9fcf6464-984e-41a7-83de-fb15f6368e9a.webp?v=1712926596", 
+            alt: "Latte qahva" 
+        },
+        { 
+            id: 3, 
+            name: "Cappuccino", 
+            desc: "Klassik italyan kapuchinosi, dolchin va qaymoqli ko'pik.", 
+            tags: ["Klassik", "Ko'pikli"], 
+            price: 12700, 
+            img: "https://www.javapresse.com/cdn/shop/articles/javapresse_490.webp?v=1727363816&width=780", 
+            alt: "Cappuccino" 
+        },
+        { 
+            id: 4, 
+            name: "Americano", 
+            desc: "Suv bilan suyultirilgan espresso, yumshoq va boy ta'm.", 
+            tags: ["Klassik", "Yengil"], 
+            price: 10900, 
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP7PzXpj11ISpb2pI5WjxOaFayqiv2w4qZxA&s", 
+            alt: "Americano" 
+        },
+        { 
+            id: 5, 
+            name: "Flat White", 
+            desc: "Ikki espresso va nozik mikropenka. Avstraliya uslubi.", 
+            tags: ["Barista", "Tuyg'uli"], 
+            price: 14500, 
+            img: "https://www.foodandwine.com/thmb/xQZv2CX6FO5331PYK7uGPF1we9Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Flat-White-FT-BLOG0523-b11f6273c2d84462954c2163d6a1076d.jpg", 
+            alt: "Flat White" 
+        },
+        { 
+            id: 6, 
+            name: "Mocha", 
+            desc: "Shokoladli mokka, qaymoq va yong‘oq bo‘laklari. Haqiqiy zavq.", 
+            tags: ["Shirin", "Shokoladli"], 
+            price: 15200, 
+            img: "https://hoxtoncoffee.com/cdn/shop/articles/latte-art-on-mocha_1200x1200.jpg?v=1660069726", 
+            alt: "Mocha qahva" 
+        },
+        { 
+            id: 7, 
+            name: "Macchiato", 
+            desc: "Espresso ustiga bir qoshiq sut ko'pigi. Kuchli va nafis.", 
+            tags: ["Kuchli", "Kichik"], 
+            price: 12900, 
+            img: "https://fandbrecipes.com/wp-content/uploads/2022/07/Espresso-Macchiato_Step-By-Step-Recipe.png", 
+            alt: "Macchiato" 
+        },
+        { 
+            id: 8, 
+            name: "Affogato", 
+            desc: "Vanilli muzqaymoq bilan to'kib berilgan issiq espresso.", 
+            tags: ["Desert", "Muzqaymoqli"], 
+            price: 16500, 
+            img: "https://icecreamfromscratch.com/wp-content/uploads/2022/08/Affogato-1.2-720x720.jpg", 
+            alt: "Affogato" 
+        },
+        { 
+            id: 9, 
+            name: "Irish Coffee", 
+            desc: "Qaymoq va viski notalari, issiq va quvvatli kokteyl.", 
+            tags: ["Kokteyl", "Kremli"], 
+            price: 18900, 
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO8P7OQA8qEO9qp4JPw667Z0P0LPhXt7SxCw&s", 
+            alt: "Irish Coffee" 
+        },
+        { 
+            id: 10, 
+            name: "Frappe", 
+            desc: "Muzlatilgan qahva, qaymoqli tekstura va yozgi tetiklik.", 
+            tags: ["Sovuq", "Muzli"], 
+            price: 13900, 
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgWdCAi9gW4oN9aw3Wdo0SR0sK3UObvnzhyQ&s", 
+            alt: "Frappe" 
+        },
+        { 
+            id: 11, 
+            name: "Ristretto", 
+            desc: "Konsentrlangan espresso, juda kuchli va yumshoq kislotali.", 
+            tags: ["Kuchli", "Qisqa"], 
+            price: 11900, 
+            img: "https://www.nestleprofessional.in/sites/default/files/2021-11/Ristretto.jpg", 
+            alt: "Ristretto" 
+        },
+        { 
+            id: 12, 
+            name: "Cold Brew", 
+            desc: "12 soat sovuq suvda damlangan, yumshoq va shirin ta'm.", 
+            tags: ["Sovuq", "Tabiiy"], 
+            price: 12500, 
+            img: "https://www.thecaffeinebaar.com/cdn/shop/articles/Recipe-_0003_cold_brew_1200x1200.jpg?v=1636717199", 
+            alt: "Cold Brew" 
+        }
+    ];
+
+    let cart = [];
+
+    const cartCountSpan = document.getElementById('cartCount');
+    const cartHeaderBtn = document.getElementById('cartHeaderBtn');
+
+    function saveCart() {
+        localStorage.setItem('qahva_cart', JSON.stringify(cart));
+    }
+
+    function loadCart() {
+        const saved = localStorage.getItem('qahva_cart');
+        if (saved) {
+            try { cart = JSON.parse(saved); } catch(e) { cart = []; }
+        } else { cart = []; }
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountSpan.innerText = totalItems;
+        saveCart();
+        coffeeMenu.forEach(coffee => {
+            const cartItem = cart.find(c => c.id === coffee.id);
+            const qty = cartItem ? cartItem.quantity : 0;
+            const qtySpan = document.getElementById(`qty-${coffee.id}`);
+            if (qtySpan) qtySpan.innerText = qty;
+        });
+    }
+
+    function getItemQuantity(id) {
+        const item = cart.find(c => c.id === id);
+        return item ? item.quantity : 0;
+    }
+
+    function setQuantity(id, newQty) {
+        if (newQty < 0) newQty = 0;
+        const existingIndex = cart.findIndex(c => c.id === id);
+        if (newQty === 0) {
+            if (existingIndex !== -1) cart.splice(existingIndex, 1);
+        } else {
+            if (existingIndex !== -1) {
+                cart[existingIndex].quantity = newQty;
+            } else {
+                cart.push({ id: id, quantity: newQty });
+            }
+        }
+        updateCartUI();
+        const qtySpan = document.getElementById(`qty-${id}`);
+        if (qtySpan) qtySpan.innerText = newQty;
+    }
+
+    function increment(id) {
+        setQuantity(id, getItemQuantity(id) + 1);
+        const coffee = coffeeMenu.find(c => c.id === id);
+        if (coffee) showToast(`${coffee.name} savatga qo'shildi (+1)`);
+    }
+
+    function decrement(id) {
+        setQuantity(id, getItemQuantity(id) - 1);
+    }
+
+    function goToCheckout() {
+        if (cart.length === 0) {
+            alert("☕️ Savat bo'sh. Iltimos, kamida bitta mahsulot qo'shing!");
+            return;
+        }
+        const checkoutItems = cart.map(item => {
+            const coffee = coffeeMenu.find(c => c.id === item.id);
+            return {
+                id: item.id,
+                name: coffee.name,
+                price: coffee.price,
+                quantity: item.quantity,
+                img: coffee.img
+            };
+        });
+        localStorage.setItem('qahva_cart', JSON.stringify(cart));
+        localStorage.setItem('checkout_items', JSON.stringify(checkoutItems));
+        window.location.href = 'checkout.html';
+    }
+
+    function showToast(msg) {
+        const toastDiv = document.createElement('div');
+        toastDiv.className = 'custom-toast';
+        toastDiv.innerHTML = `<i class="fas fa-check-circle" style="color:#D4AF37; margin-right:8px;"></i> ${msg}`;
+        document.body.appendChild(toastDiv);
+        setTimeout(() => {
+            toastDiv.style.opacity = '0';
+            setTimeout(() => toastDiv.remove(), 300);
+        }, 1800);
+    }
+
+    function renderCoffeeCards() {
+        const container = document.getElementById('coffeeList');
+        if (!container) return;
+        container.innerHTML = '';
+        coffeeMenu.forEach((coffee, idx) => {
+            const qty = getItemQuantity(coffee.id);
+            const card = document.createElement('div');
+            card.className = 'coffee-card';
+            card.style.animationDelay = `${idx * 0.04}s`;
+            const tagsHtml = coffee.tags.map(tag => `<span class="coffee-tag">${tag}</span>`).join('');
+            card.innerHTML = `
+                <img src="${coffee.img}" alt="${coffee.alt}" class="coffee-img" loading="lazy" onerror="this.src='https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop'">
+                <div class="coffee-tags">${tagsHtml}</div>
+                <div class="coffee-name">${coffee.name}</div>
+                <div class="coffee-desc">${coffee.desc}</div>
+                <div class="coffee-footer">
+                    <div class="coffee-price">${coffee.price.toLocaleString()} so‘m</div>
+                    <div class="quantity-controls">
+                        <button class="qty-btn decr-btn" data-id="${coffee.id}">−</button>
+                        <span class="qty-value" id="qty-${coffee.id}">${qty}</span>
+                        <button class="qty-btn incr-btn" data-id="${coffee.id}">+</button>
+                    </div>
+                    <button class="cart-icon-btn checkout-btn" data-id="${coffee.id}">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        document.querySelectorAll('.decr-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = parseInt(btn.getAttribute('data-id'));
+                decrement(id);
+            });
+        });
+        document.querySelectorAll('.incr-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = parseInt(btn.getAttribute('data-id'));
+                increment(id);
+            });
+        });
+        document.querySelectorAll('.checkout-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = parseInt(btn.getAttribute('data-id'));
+                if (getItemQuantity(id) === 0) {
+                    increment(id);
+                }
+                goToCheckout();
+            });
+        });
+    }
+
+    function init() {
+        loadCart();
+        renderCoffeeCards();
+        if (cartHeaderBtn) {
+            cartHeaderBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToCheckout();
+            });
+        }
+    }
+    init();
+</script>
+</body>
+</html>
